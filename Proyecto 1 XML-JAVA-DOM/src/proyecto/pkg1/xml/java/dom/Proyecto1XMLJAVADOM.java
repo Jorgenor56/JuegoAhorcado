@@ -22,11 +22,12 @@ public class Proyecto1XMLJAVADOM {
             System.out.println("Contenido actual del XML:");
             mostrarContenidoXML(doc);
             
-             // Obtener la última ID del archivo XML
+            // Obtener la última ID del archivo XML
             String ultimaId = obtenerUltimaId(doc);
 
             // Generar la nueva ID incrementando la última ID
             int nuevaId = Integer.parseInt(ultimaId) + 1;
+
             
             // Pedir al usuario los datos para el nuevo nodo
             Scanner scanner = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class Proyecto1XMLJAVADOM {
 
             // Crear un nuevo nodo libro
             Element nuevoLibro = doc.createElement("book");
-            nuevoLibro.setAttribute("id", id);
+            nuevoLibro.setAttribute("id", String.valueOf(nuevaId));
 
             // Crear nodos para los elementos del libro
             Element autorElement = doc.createElement("author");
