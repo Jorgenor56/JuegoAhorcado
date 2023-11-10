@@ -21,11 +21,15 @@ public class Proyecto1XMLJAVADOM {
             // Mostrar el contenido actual del XML
             System.out.println("Contenido actual del XML:");
             mostrarContenidoXML(doc);
+            
+             // Obtener la última ID del archivo XML
+            String ultimaId = obtenerUltimaId(doc);
 
+            // Generar la nueva ID incrementando la última ID
+            int nuevaId = Integer.parseInt(ultimaId) + 1;
+            
             // Pedir al usuario los datos para el nuevo nodo
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Ingrese el ID del libro: ");
-            String id = scanner.nextLine();
             System.out.print("Ingrese el autor del libro: ");
             String autor = scanner.nextLine();
             System.out.print("Ingrese el título del libro: ");
@@ -122,5 +126,22 @@ public class Proyecto1XMLJAVADOM {
             System.out.println("Descripción: " + descripcion);
             System.out.println();
         }
+    }
+        // Método para obtener la última ID del archivo XML
+    private static String obtenerUltimaId(Document doc) {
+        String ultimaId = "0";
+
+        NodeList listaLibros = doc.getElementsByTagName("book");
+        if (listaLibros.getLength() > 0) {
+            Element ultimoLibro = (Element) listaLibros.item(listaLibros.getLength() - 1);
+            ultimaId = ultimoLibro.getAttribute("id");
+        }
+
+        return ultimaId;
+    }
+    // Método para obtener la entrada del usuario
+    private static String obtenerEntradaUsuario(Scanner scanner, String mensaje) {
+        System.out.print(mensaje);
+        return scanner.nextLine();
     }
 }
