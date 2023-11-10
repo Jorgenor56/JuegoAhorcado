@@ -78,7 +78,25 @@ public class Proyecto1XMLJAVADOM {
 
             System.out.println("El nuevo libro ha sido agregado al XML.");
 
-        } catch (ParserConfigurationException | SAXException | IOException | TransformerException | DOMException e) {
+        } catch (ParserConfigurationException e) {
+            System.err.println("Error de configuración del parser XML: " + e.getMessage());
+            e.printStackTrace();
+
+        } catch (SAXException | IOException e) {
+            System.err.println("Error al procesar el archivo XML: " + e.getMessage());
+            e.printStackTrace();
+
+        } catch (TransformerException e) {
+            System.err.println("Error al transformar el documento XML: " + e.getMessage());
+            e.printStackTrace();
+
+        } catch (DOMException e) {
+            System.err.println("Error del modelo de objeto de documento (DOM): " + e.getMessage());
+            e.printStackTrace();
+
+        } catch (Exception e) {
+            System.err.println("Error no manejado: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
