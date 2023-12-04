@@ -13,7 +13,7 @@ public class Proyecto1XMLJAVADOM {
 
     public static void main(String[] args) throws SAXException, IOException {
         try {
-            // Parsear el archivo XML, es decir, crea un archivo Document con una API
+            //Parsear el archivo XML, es decir, crea un archivo Document con una API
             //La primera linea crea una instancia de la clase DocumentBuilderFactor y un objeto DocumentBuilder
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             //Esta línea utiliza la instancia que creó la anterior para crear otra llamada DocumentBuilder
